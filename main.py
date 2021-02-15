@@ -23,7 +23,7 @@ def session():
     return driver
 
 
-def OAuth(driver):
+def auth(driver):
     email = driver.find_element_by_name('session[username_or_email]')
     email.send_keys(USARNAME)
     password = driver.find_element_by_name('session[password]')
@@ -62,7 +62,7 @@ def main():
     driver = session()
     updater = initTelegramBot()
 
-    OAuth(driver)
+    auth(driver)
     target(driver)
 
     history = open('history.txt', 'r+')
